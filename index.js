@@ -1,21 +1,22 @@
 const mqtt = require('mqtt');
 const fs = require('fs');
-const path = require('path');
+const crypto = require('crypto');
+const dotenv = require('dotenv');
+const debug = require('debug')('mqtt-to-binary');
 
-const client = mqtt.connect('mqtt://localhost');
+dotenv.config();
 
-client.on('connect', function () {
-  client.subscribe('topic');
+const client = mqtt.connect(process.env.MQTT_BROKER_URL);
+
+client.on('connect', () => {
+  client.subscribe(process.env.MQTT_TOPIC);
 });
 
-client.on('message', function (topic, message) {
-  const data = JSON.parse(message.toString());
-  const fileName = data.name;
-  const fileContent = data.binary;
-  const filePath = path.join(__dirname, fileName);
-
-  fs.writeFile(filePath, fileContent, function (err) {
+client.on('message', (topic, message) => {
+  const hash = crypto.createHash('md5').update(message).digest('hex');
+  const fileName = `${hash}.uf2`;
+  fs.writeFile(fileName, message, (err) => {
     if (err) throw err;
-    console.log('File saved!');
+    debug(`File ${fileName} created successfully`);
   });
 });
