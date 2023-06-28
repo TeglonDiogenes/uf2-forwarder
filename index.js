@@ -1,13 +1,15 @@
 const mqtt = require('mqtt');
 const fs = require('fs');
 const crypto = require('crypto');
-const dotenv = require('dotenv');
+const dotenv = require('./src/load-config');
 const debug = require('debug')('mqtt-to-binary');
 
-dotenv.config();
 
 const {MQTT_BROKER_URL, MQTT_TOPIC, UPLOAD_DIRECTORY} = process.env;
+debug(MQTT_BROKER_URL, MQTT_TOPIC,UPLOAD_DIRECTORY,'zzz')
+process.exit()
 const client = mqtt.connect(process.env.MQTT_BROKER_URL);
+
 
 client.on('connect', () => {
   client.subscribe(process.env.MQTT_TOPIC);
