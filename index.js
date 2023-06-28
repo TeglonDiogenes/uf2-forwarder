@@ -15,7 +15,7 @@ client.on('connect', () => {
 
 client.on('message', (topic, message) => {
   const hash = crypto.createHash('md5').update(message).digest('hex');
-  const ts = Date.now()l
+  const ts = Date.now();
   const fileName = `${UPLOAD_DIRECTORY}/${ts}-${hash}.uf2`;
   fs.writeFile(, message, (err) => {
     if (err) throw err;
