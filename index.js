@@ -16,9 +16,9 @@ client.on('connect', () => {
 client.on('message', (topic, message) => {
   const hash = crypto.createHash('md5').update(message).digest('hex');
   const ts = Date.now();
-  const fileName = `${UPLOAD_DIRECTORY}/${ts}-${hash}.uf2`;
-  fs.writeFile(, message, (err) => {
+  const pathToFile = `${UPLOAD_DIRECTORY}/${ts}-${hash}.uf2`;
+  fs.writeFile(pathToFile, message, (err) => {
     if (err) throw err;
-    debug(`File ${fileName} created successfully`);
+    debug(`File ${pathToFile} created successfully`);
   });
 });
