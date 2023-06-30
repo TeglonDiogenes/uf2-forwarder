@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=development DEBUG=* forever start index.js --watch",
     "dev-stop": "forever stop index.js --watch",
-    "test": "mocha -u tdd -e -r mocha -c true  test "
+    "test": "mocha --require ./tets-setup.js -u tdd -e -r mocha -c true  test "
   },
   "keywords": [],
   "author": "",
