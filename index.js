@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('./get-config');
 const mqtt = require('mqtt');
 const fs = require('fs');
 const crypto = require('crypto');
