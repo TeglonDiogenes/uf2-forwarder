@@ -1,7 +1,7 @@
+require('dotenv').config();
 const mqtt = require('mqtt');
 const fs = require('fs');
 const crypto = require('crypto');
-const dotenv = require('./src/load-config');
 const debug = require('debug')('mqtt-to-binary');
 
 
