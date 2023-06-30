@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=development DEBUG=* forever start index.js --watch",
     "dev-stop": "forever stop index.js --watch",
-    "test": "mocha test"
+    "test": "mocha -u tdd -c true  test"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,11 @@
   },
   "devDependencies": {
     "chai": "^4.3.7",
+    "eslint": "^8.43.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^16.0.1",
+    "eslint-plugin-promise": "^6.1.1",
     "mocha": "^10.2.0"
   }
 }
