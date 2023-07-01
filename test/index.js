@@ -1,3 +1,3 @@
 description('base line', () => {
-  expect(true).to.be.true;
-});
+  expect(true).to.be.true
+})
