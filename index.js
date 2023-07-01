@@ -7,7 +7,6 @@ const debug = require('debug')('mqtt-to-binary');
 
 const {MQTT_BROKER_URL, MQTT_TOPIC, UPLOAD_DIRECTORY} = process.env;
 debug(MQTT_BROKER_URL, MQTT_TOPIC,UPLOAD_DIRECTORY,'zzz')
-process.exit()
 const client = mqtt.connect(process.env.MQTT_BROKER_URL);
 
 
