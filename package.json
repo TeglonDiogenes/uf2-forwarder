@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=development DEBUG=* forever start index.js --watch",
     "dev-stop": "forever stop index.js --watch",
-    "test": "mocha --reporter spec --require ./test-setup.js test"
+    "test": "mocha test"
   },
   "keywords": [],
   "author": "",
