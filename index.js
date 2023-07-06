@@ -27,7 +27,7 @@ function storeuf2 (topic, message) {
   })
 }
 function broadcast (topic, message) {
-  debug(topic, message)
+  debug(topic, message.toString())
 }
 function what (topic, message) {
   debug('What?'.topic, message)
